@@ -580,14 +580,14 @@ so change the default 'F' binding in the agenda to allow both"
   (add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
 
   ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
-  (setq org-refile-targets (quote ((nil :maxlevel . 9)
-                                   (org-agenda-files :maxlevel . 9))))
+  (setq org-refile-targets (quote ((nil :maxlevel . 4)
+                                   (org-agenda-files :maxlevel . 4))))
 
   ;; Use full outline paths for refile targets - we file directly with IDO
-  (setq org-refile-use-outline-path t)
+  (setq org-refile-use-outline-path 'file)
 
-  ;; ;; Targets complete directly with IDO
-  ;; (setq org-outline-path-complete-in-steps nil)
+  ;; Targets complete directly with IDO
+  (setq org-outline-path-complete-in-steps nil)
 
   ;; Allow refile to create parent tasks with confirmation
   (setq org-refile-allow-creating-parent-nodes (quote confirm))
@@ -717,7 +717,7 @@ as the default task."
             (when bh/keep-clock-running
               (bh/clock-in-default-task)))))))
 
-  (defvar bh/organization-task-id "e2fb68ed-2c63-4f32-9fa3-9ce17349191e")
+  (defvar bh/organization-task-id "F75B5BCC-019F-4F23-B368-233D4364074B")
 
   (defun bh/clock-out-maybe ()
     (when (and bh/keep-clock-running
